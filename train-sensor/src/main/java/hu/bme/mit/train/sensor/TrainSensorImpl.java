@@ -22,6 +22,10 @@ public class TrainSensorImpl implements TrainSensor {
 
 	@Override
 	public void overrideSpeedLimit(int speedLimit) {
+		//alarm wont reset automatically, it needs be reset explicitly
+		if((speedLimit > 500 || speedLimit < 0) || (speedLimit < this.speedLimit * 0.5)) {
+			user.setAlarmState(true);
+		}
 		this.speedLimit = speedLimit;
 		controller.setSpeedLimit(speedLimit);
 	}
