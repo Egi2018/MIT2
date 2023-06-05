@@ -15,11 +15,11 @@ public class TrainControllerImpl implements TrainController {
 	private int step = 0;
 	private int referenceSpeed = 0;
 	private int speedLimit = 0;
-	private final Timer refSpeedUpdateTimer;
+	private final Timer refSpeedUpdateTimer_v1;
 
 	public TrainControllerImpl(){
-		refSpeedUpdateTimer = new Timer();
-		refSpeedUpdateTimer.schedule(new TimerTask() {
+		refSpeedUpdateTimer_v1 = new Timer();
+		refSpeedUpdateTimer_v1.schedule(new TimerTask() {
 			@Override
 			public void run() {
 				followSpeed();
